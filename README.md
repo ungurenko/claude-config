@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-git clone https://github.com/alexandrungurenko/claude-config.git ~/claude-config
+git clone https://github.com/ungurenko/claude-config.git ~/claude-config
 cd ~/claude-config
 chmod +x install.sh
 ./install.sh
