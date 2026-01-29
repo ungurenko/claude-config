@@ -165,6 +165,34 @@ switch (endpoint) {
 - **Vercel Pro:** без лимита
 - **Netlify Free:** 125k функций/месяц
 
+### HTTP заголовки: только ASCII
+
+```typescript
+// ❌ headers: { 'X-Title': 'Суть.' }  — crash на сервере (код символа > 255)
+// ✅ headers: { 'X-Title': 'Sut App' }  — только ASCII
+```
+
+### LLM JSON ответы: очищай markdown
+
+LLM часто возвращают JSON в markdown-обёртке: ` ```json {...} ``` `
+
+```typescript
+let clean = content.trim();
+if (clean.startsWith('```json')) clean = clean.slice(7);
+if (clean.startsWith('```')) clean = clean.slice(3);
+if (clean.endsWith('```')) clean = clean.slice(0, -3);
+const result = JSON.parse(clean.trim());
+```
+
+### LLM инструкции: не позволяй клиенту переопределять формат
+
+Клиентский config не должен полностью заменять системные инструкции — критические части (формат JSON ответа) должны быть обязательными.
+
+```typescript
+// ❌ const instruction = config?.instruction || defaultInstruction;
+// ✅ const instruction = `${config?.instruction || baseInstruction}\n\n${REQUIRED_FORMAT}`;
+```
+
 ---
 
 ## 🔐 Авторизация
