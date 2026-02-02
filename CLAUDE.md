@@ -36,6 +36,7 @@
 |-------|----------|
 | `frontend-design` | UI, компонент, страница, дизайн, интерфейс |
 | `ui-ux-pro-max` | Детальный дизайн, палитры, типографика, 50+ стилей |
+| `infoproduct-landing` | Лендинг, курс, наставничество, инфопродукт, онлайн-школа |
 | `git-workflow-manager` | Commit, release, changelog, версионирование |
 | `claude-md-writer` | Создание/рефакторинг CLAUDE.md файлов |
 | `kie-ai` | Упоминание kie, seedream, veo, suno, runway, kling, flux |
