@@ -38,6 +38,7 @@ echo ""
 # Симлинки для файлов
 link_file "$SCRIPT_DIR/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md"
 link_file "$SCRIPT_DIR/agent.md" "$CLAUDE_DIR/agent.md"
+link_file "$SCRIPT_DIR/technical-rules.md" "$CLAUDE_DIR/technical-rules.md"
 
 # Симлинки для skills (целые директории)
 link_file "$SCRIPT_DIR/skills/kie-ai" "$CLAUDE_DIR/skills/kie-ai"
