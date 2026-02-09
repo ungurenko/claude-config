@@ -30,6 +30,17 @@
 
 Подробные примеры и код: см. `~/claude-config/technical-rules.md`
 
+## CCBot (Telegram-бот для управления Claude Code)
+
+В статус-лайне отображается индикатор ccbot: `● ccbot` (работает), `○ ccbot` (сессия есть, процесс не активен), `✗ ccbot` (не запущен).
+
+Если пользователь просит запустить/перезапустить ccbot:
+- **Запуск:** `bash ~/Projects/ccbot/scripts/start.sh` — идемпотентный, безопасно вызывать повторно
+- **Перезапуск:** `bash ~/Projects/ccbot/scripts/restart.sh` — останавливает и запускает заново
+- **Проверка статуса:** `/opt/homebrew/bin/tmux has-session -t ccbot 2>/dev/null && echo "running" || echo "stopped"`
+- **Логи автозапуска:** `/tmp/ccbot-autostart.log`
+- **Код проекта:** `~/Projects/ccbot/`
+
 ## Критические требования
 
 Когда пользователь говорит "критически важно" — держи это в фокусе всю сессию.
