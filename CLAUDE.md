@@ -35,11 +35,11 @@
 В статус-лайне отображается индикатор ccbot: `● ccbot` (работает), `○ ccbot` (сессия есть, процесс не активен), `✗ ccbot` (не запущен).
 
 Если пользователь просит запустить/перезапустить ccbot:
-- **Запуск:** `bash ~/Projects/ccbot/scripts/start.sh` — идемпотентный, безопасно вызывать повторно
-- **Перезапуск:** `bash ~/Projects/ccbot/scripts/restart.sh` — останавливает и запускает заново
+- **Запуск:** `bash ~/Documents/Вайб-кодинг/ccbot/scripts/start.sh` — идемпотентный, безопасно вызывать повторно
+- **Перезапуск:** `bash ~/Documents/Вайб-кодинг/ccbot/scripts/restart.sh` — останавливает и запускает заново
 - **Проверка статуса:** `/opt/homebrew/bin/tmux has-session -t ccbot 2>/dev/null && echo "running" || echo "stopped"`
 - **Логи автозапуска:** `/tmp/ccbot-autostart.log`
-- **Код проекта:** `~/Projects/ccbot/`
+- **Код проекта:** `~/Documents/Вайб-кодинг/ccbot/`
 
 ## Критические требования
 
