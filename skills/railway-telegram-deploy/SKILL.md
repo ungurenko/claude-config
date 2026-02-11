@@ -1,6 +1,6 @@
 ---
 name: railway-telegram-deploy
-description: Use when deploying Telegram bots to Railway - analyzes bot stack, configures railway.json, sets env vars, deploys via MCP tools. Triggers on "деплой бота на railway", "deploy telegram bot to railway", "развернуть бота на railway"
+description: Use when deploying Telegram bots to Railway, updating existing Railway bot deployments, switching bots between polling and webhook modes, or troubleshooting Railway bot issues. Triggers on "деплой бота на railway", "deploy telegram bot", "развернуть бота на railway", "обнови бота на railway"
 ---
 
 # Railway Telegram Deploy
