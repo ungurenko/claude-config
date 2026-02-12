@@ -162,12 +162,13 @@ export async function pollResult(
     options?.onProgress?.(i + 1, maxAttempts, state);
 
     if (state === "success") {
+      if (!resultJson) throw new KieApiError("API returned success but no resultJson", 500, "Try again");
       const parsed = ImageResultSchema.parse(JSON.parse(resultJson));
       return parsed.resultUrls;
     }
     if (state === "fail") {
       throw new KieApiError(
-        `Generation failed: ${failMsg}`,
+        `Generation failed: ${failMsg ?? "unknown error"}`,
         500,
         "Try a different prompt or model",
       );

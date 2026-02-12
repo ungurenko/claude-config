@@ -13,8 +13,8 @@ export const KieRecordResponseSchema = z.object({
   data: z.object({
     taskId: z.string(),
     state: z.enum(["waiting", "queuing", "generating", "success", "fail"]),
-    resultJson: z.string(),
-    failMsg: z.string(),
+    resultJson: z.string().nullable(),
+    failMsg: z.string().nullable(),
   }),
 });
 
