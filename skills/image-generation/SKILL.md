@@ -25,11 +25,13 @@ description: >
 question: "Какую модель использовать?"
 header: "Model"
 options:
-  - label: "nano-banana-pro (Recommended)"
-    description: "Лучшее качество, 2K/4K. ~18-24 кредита. Для серьёзных задач."
-  - label: "gpt-image"
+  - label: "Gemini (Google) (Recommended)"
+    description: "Прямой доступ через Google API. Быстро (~10-30 сек), ~$0.13/img. Без посредника."
+  - label: "nano-banana-pro (Kie.ai)"
+    description: "Лучшее качество, 2K/4K. ~18-24 кредита. Через Kie.ai."
+  - label: "gpt-image (Kie.ai)"
     description: "Быстрая генерация, хорошее качество. ~10 кредитов."
-  - label: "z-image"
+  - label: "z-image (Kie.ai)"
     description: "Самая дешёвая и быстрая. ~5 кредитов. Для тестов и черновиков."
 ```
 
@@ -78,6 +80,18 @@ options:
 
 ### Шаг 3: Сгенерировать изображение
 
+**Если выбран Gemini (Google):**
+
+Вызови `mcp__google-imagen__generate_image_google` с параметром:
+
+```
+prompt: [улучшенный промпт на английском]
+```
+
+Aspect ratio и resolution указываются прямо в тексте промпта (напр. "wide landscape 16:9").
+
+**Если выбрана модель Kie.ai (nano-banana-pro / gpt-image / z-image):**
+
 Вызови `mcp__kie-ai__generate_image` с параметрами:
 
 ```
@@ -105,11 +119,12 @@ quality: [только для gpt-image: "medium" или "high"]
 
 ## Справочная таблица моделей
 
-| Модель | MCP model ID | Кредиты | Скорость | Особенности |
-|--------|-------------|---------|----------|-------------|
-| nano-banana-pro | `nano-banana-pro` | 18-24 | Средняя | 2K/4K, лучшее качество |
-| gpt-image | `gpt-image/1.5-text-to-image` | ~10 | Быстрая | medium/high quality |
-| z-image | `z-image` | ~5 | Быстрая | Минимальная цена |
+| Модель | MCP инструмент | Стоимость | Скорость | Особенности |
+|--------|---------------|-----------|----------|-------------|
+| **Gemini (Google)** | `mcp__google-imagen__generate_image_google` | ~$0.13 | 10-30 сек | Прямой API, без посредника, inline результат |
+| nano-banana-pro | `mcp__kie-ai__generate_image` | 18-24 кр | Средняя | 2K/4K, лучшее качество (через Kie.ai) |
+| gpt-image | `mcp__kie-ai__generate_image` | ~10 кр | Быстрая | medium/high quality (через Kie.ai) |
+| z-image | `mcp__kie-ai__generate_image` | ~5 кр | Быстрая | Минимальная цена (через Kie.ai) |
 
 ## Гайд по промптам
 
