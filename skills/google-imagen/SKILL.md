@@ -3,8 +3,9 @@ name: google-imagen
 description: >
   Use when generating images with Google Gemini model.
   Triggers on: "gemini image", "google image", "gemini картинка",
-  "сгенерируй через gemini", "google сгенерируй", "nano banana",
+  "сгенерируй через gemini", "google сгенерируй",
   "gemini generate image", "gemini нарисуй".
+  Do NOT trigger on "nano banana" alone — use image-generation skill instead (it asks which provider).
   Uses Google Gemini API via google-imagen MCP server.
 ---
 
@@ -30,14 +31,27 @@ in/on [setting/location], shot from [camera angle]. The style is [style], with [
 5. **Aspect ratio / resolution** — указывай прямо в промпте (напр. "wide landscape 16:9", "square format", "vertical portrait 9:16")
 6. **Сохранить исходный смысл** — не менять идею пользователя, только обогащать
 
-**Покажи пользователю улучшенный промпт перед генерацией:**
+**Покажи пользователю улучшенный промпт и ОБЯЗАТЕЛЬНО дождись подтверждения:**
 
 ```
 Исходный промпт: [оригинал]
 Улучшенный промпт: [enhanced version]
 
-Генерирую через Google Gemini...
+Стоимость: ~$0.13
 ```
+
+Используй `AskUserQuestion`:
+```
+question: "Генерировать через Google Gemini? (~$0.13)"
+header: "Confirm"
+options:
+  - label: "Да, генерируй"
+    description: "Запустить генерацию с показанным промптом"
+  - label: "Нет, изменить промпт"
+    description: "Хочу поправить промпт перед генерацией"
+```
+
+**НИКОГДА не генерируй без подтверждения пользователя — каждая генерация стоит денег.**
 
 ### Шаг 2: Сгенерировать изображение
 
