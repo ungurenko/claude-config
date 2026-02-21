@@ -83,56 +83,7 @@ description: Генерация и планирование постов в Thre
 
 ВАЖНО: Перед началом убедись, что Chrome открыт и MCP доступен. Если нет — попроси пользователя открыть Chrome.
 
-### Алгоритм для однокомпонентного поста (1 часть):
-
-```
-1. Перейди на threads.com (если ещё не там):
-   → mcp__chrome-devtools__navigate_page(url: "https://www.threads.com")
-   → Подожди загрузки
-
-2. Найди кнопку "Создать":
-   → mcp__chrome-devtools__take_snapshot()
-   → Найди кнопку создания поста (обычно "Создать" или иконка с "+")
-   → mcp__chrome-devtools__click(uid: <uid кнопки>)
-
-3. Введи текст поста:
-   → mcp__chrome-devtools__take_snapshot()
-   → Найди текстовое поле (textbox, multiline) в модалке "Новая ветка"
-   → mcp__chrome-devtools__fill(uid: <uid поля>, value: <текст поста с CTA>)
-
-4. Открой меню планирования:
-   → mcp__chrome-devtools__take_snapshot()
-   → Найди и кликни кнопку "Ещё" (три точки или "Ещё")
-   → mcp__chrome-devtools__click(uid: <uid кнопки "Ещё">)
-
-5. Выбери "Запланировать…":
-   → mcp__chrome-devtools__take_snapshot()
-   → mcp__chrome-devtools__click(uid: <uid "Запланировать…">)
-
-6. Выбери дату:
-   → mcp__chrome-devtools__take_snapshot()
-   → Найди нужную дату в календаре (gridcell)
-   → Если дата в следующем месяце — кликни "Следующий месяц" нужное количество раз
-   → mcp__chrome-devtools__click(uid: <uid нужной даты>)
-
-7. Установи время:
-   → Найди поле часов (textbox "hh") и минут (textbox "mm")
-   → mcp__chrome-devtools__fill(uid: <uid часов>, value: <часы>)
-   → mcp__chrome-devtools__fill(uid: <uid минут>, value: <минуты>)
-
-8. Подтверди расписание:
-   → mcp__chrome-devtools__click(uid: <uid "Готово">)
-
-9. Опубликуй (запланируй):
-   → mcp__chrome-devtools__take_snapshot()
-   → Найди кнопку "Запланировать" или "Опубликовать"
-   → mcp__chrome-devtools__click(uid: <uid кнопки>)
-
-10. Подожди 3 секунды перед следующим постом:
-    → Используй Bash: sleep 3
-```
-
-### Алгоритм для многокомпонентного поста (2+ частей — multi-part thread):
+### Алгоритм для КАЖДОГО поста (всегда multi-part: контент + CTA):
 
 ```
 1. Перейди на threads.com (если ещё не там):
