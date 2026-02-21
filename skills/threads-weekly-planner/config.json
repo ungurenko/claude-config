@@ -25,5 +25,8 @@
     "\n\nМоя база промптов для контента — бесплатно: {link}",
     "\n\nПромпты для блога, которые я использую каждый день: {link}"
   ],
-  "competitorUsername": ""
+  "competitorUsername": "",
+  "maxPartsPerThread": 5,
+  "charsPerPart": 500,
+  "charsLastPartText": 420
 }
